@@ -11,6 +11,7 @@ class LoginForm extends Component {
                 <CardItem>
                     <Input
                         label="Email"
+                        placeholder="user@gmail.com"
                         value={this.state.text}
                         onChangeText={text => this.setState({ text })}
                      />
