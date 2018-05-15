@@ -4,13 +4,21 @@ import firebase from 'firebase';
 
 class LoginForm extends Component {
 
-    state = { email: '', password: '' };
+    state = { email: '', password: '', error: '' };
 
     onButtonPress() {
         const { email, password } = this.state;
-        firebase.auth().signInWithEmailAndPassword(email, password);
-    }
 
+        firebase.auth().signInWithEmailAndPassword(email, password)
+        .catch(() => {
+            // if sign in fail, let user to sign up
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            .catch(() => {
+                this.setState({ error: 'Authentication failed!' });
+            })
+        })
+
+    }
 
     render() {
         return (
@@ -33,6 +41,10 @@ class LoginForm extends Component {
                         onChangeText={password => this.setState({ password })}
                      />
                 </CardItem>
+
+                <Text>
+                    {this.state.error}
+                </Text>
 
                 <CardItem>
                     <Button onPress={this.onButtonPress.bind(this)}>
