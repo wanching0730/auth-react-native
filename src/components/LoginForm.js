@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { Button, Card, CardItem, Input } from './common';
 import firebase from 'firebase';
 
@@ -42,7 +43,7 @@ class LoginForm extends Component {
                      />
                 </CardItem>
 
-                <Text>
+                <Text style={styles.errorTextStyle}>
                     {this.state.error}
                 </Text>
 
@@ -53,6 +54,14 @@ class LoginForm extends Component {
                 </CardItem>
             </Card>
         );
+    }
+}
+
+const styles = {
+    errorTextStyle: {
+        fontSize: 20,
+        alignSelf: 'center',
+        color: 'red'
     }
 }
 
