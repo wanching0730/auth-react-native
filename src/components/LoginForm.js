@@ -3,7 +3,7 @@ import { Button, Card, CardItem, Input } from './common';
 
 class LoginForm extends Component {
 
-    state = { text: '' };
+    state = { email: '', password: '' };
 
     render() {
         return (
@@ -12,11 +12,20 @@ class LoginForm extends Component {
                     <Input
                         label="Email"
                         placeholder="user@gmail.com"
-                        value={this.state.text}
-                        onChangeText={text => this.setState({ text })}
+                        value={this.state.email}
+                        onChangeText={text => this.setState({ email: text })}
+                    />
+                </CardItem>
+
+                <CardItem>
+                    <Input
+                        label="Password"
+                        // set as True
+                        secureTextEntry
+                        value={this.state.password}
+                        onChangeText={password => this.setState({ password })}
                      />
                 </CardItem>
-                <CardItem />
 
                 <CardItem>
                     <Button>
