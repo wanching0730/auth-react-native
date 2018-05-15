@@ -16,12 +16,11 @@ const Header = (props) => {
 
 const styles = {
     textStyle: {
-        fontSize: 30
+        fontSize: 20
     },
-
+    
     viewStyle: {
         backgroundColor: '#F8F8F8', 
-
         //FlexBox (horizontal and vertical alignment)
         justifyContent: 'center',
         alignItems: 'center',
