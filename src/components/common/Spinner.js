@@ -12,9 +12,9 @@ const Spinner = ({ size }) => {
 const styles = {
     spinnerStyle: {
         flex: 1,
-        justify: 'center',
+        justifyContent: 'center',
         alignItems: 'center'
     }
-}
+};
 
 export { Spinner };

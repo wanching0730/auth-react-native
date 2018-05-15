@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 // destructure Header from index.js, default will enter index.js
-import { Header, Button } from './components/common';
+import { Header, Button, Spinner } from './components/common';
 import firebase from 'firebase';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
 
-    state = { loggedIn: false };
+    state = { loggedIn: null };
 
     componentWillMount() {
         firebase.initializeApp(
@@ -31,15 +31,14 @@ class App extends Component {
     }
 
     renderContent() {
-        if (this.state.loggedIn) {
-            return (
-                <Button>
-                    Sign Out
-                </Button>
-            );
+        switch (this.state.loggedIn) {
+            case true: 
+                return <Button>Log out</Button>;
+            case false:
+                return <LoginForm />;
+            default:
+                return <Spinner size="large" />;
         }
-
-        return <LoginForm />;
     }
 
     render() {
