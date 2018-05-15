@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 // destructure Header from index.js, default will enter index.js
 import { Header } from './components/common';
 import firebase from 'firebase';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
 
@@ -23,7 +24,7 @@ class App extends Component {
         return (
             <View>
                 <Header headerText="Authentication" />
-                <Text>An App</Text>
+                <LoginForm />
             </View>
         );
     }
